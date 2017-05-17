@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.skeleton.activity.ChangePhoneNoActivity"
+    android:layout_marginStart="@dimen/spacing_medium"
+    android:layout_marginEnd="@dimen/spacing_medium"
+    android:layout_marginTop="@dimen/spacing_xlarge">
+    <com.skeleton.util.customview.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/changeNo"
+        android:gravity="center"
+        android:padding="@dimen/spacing_small"
+        android:inputType="number"
+        android:id="@+id/newNumber"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height_normal"
+        android:background="@drawable/button_login"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="@dimen/font_xlarge"
+        android:id="@+id/tv_submit"/>
+
+</LinearLayout>

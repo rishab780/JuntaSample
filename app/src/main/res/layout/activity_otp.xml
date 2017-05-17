@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="@dimen/spacing_large"
+    android:layout_marginStart="@dimen/spacing_large"
+    tools:context="com.skeleton.activity.OtpActivity">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/unlocked"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/spacing_xhuge"
+        android:id="@+id/iv_lock"/>
+    <Button
+    style="@style/TvTheme"
+    android:background="@drawable/button_login"
+    android:text="@string/verify"
+    android:textAllCaps="false"
+    android:layout_alignParentBottom="true"
+    android:textSize="@dimen/font_xlarge"
+    android:textColor="@color/white"
+    android:id="@+id/btn_verify"
+    android:layout_marginBottom="@dimen/font_xlarge"
+    />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/spacing_small"
+    android:layout_below="@id/iv_lock"
+    android:id="@+id/btn_reOTP">
+    <TextView
+        style="@style/tvoptbutton"
+        android:text="@string/resendotp"
+        android:drawableStart="@drawable/resend_o_t_p"
+        android:id="@+id/tv_resendOTP"/>
+    <TextView
+        style="@style/tvoptbutton"
+        android:text="@string/editnumber"
+        android:drawableStart="@drawable/e_dit_number"
+        android:id="@+id/tv_editNumber"/>
+
+</LinearLayout>
+    <TextView
+        style="@style/otp_tv"
+        android:layout_margin="@dimen/spacing_large"
+        android:text="@string/enter_sms_otp"
+        android:layout_below="@id/btn_reOTP"
+        android:id="@+id/tv_enter_otp"
+        />
+    <TextView
+        style="@style/otp_tv"
+        android:id="@+id/tv_otp_phone"
+        android:textSize="@dimen/font_xxlarge"
+        android:text="@string/sample_phone"
+        android:layout_below="@id/tv_enter_otp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/tv_otp_phone">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_otp1"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_otp2"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_otp3"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_otp4"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

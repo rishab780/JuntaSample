@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/spacing_large">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/background_parts"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large">
+
+        <View
+            style="@style/small_selector"
+            />
+
+        <View
+            style="@style/small_selector"
+            />
+        <View
+        style="@style/small_selector"
+        />
+        <View
+            style="@style/small_selector"
+            />
+        <View
+            style="@style/small_selector"
+            />
+        <View
+            style="@style/small_selector"
+            />
+        <View
+            style="@style/small_selector"
+            />
+        <View
+            style="@style/small_selector"
+            />
+
+    </LinearLayout>
+
+
+<android.support.v4.widget.NestedScrollView
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/spacing_large">
+        <com.skeleton.util.customview.MaterialEditText
+            style="@style/profile_Edit_Text"
+            android:hint="@string/relationHistory"
+            android:id="@+id/mtRelationHistory"
+            />
+        <com.skeleton.util.customview.MaterialEditText
+            style="@style/profile_Edit_Text"
+            android:hint="@string/mt_ethnicity"
+            android:id="@+id/mtEthnicity"
+            />
+        <com.skeleton.util.customview.MaterialEditText
+        style="@style/profile_Edit_Text"
+        android:hint="@string/mt_religion"
+        android:id="@+id/mtReligion"
+        />
+        <com.skeleton.util.customview.MaterialEditText
+            style="@style/profile_Edit_Text"
+            android:hint="@string/mt_height"
+            android:id="@+id/mtHeight"
+            />
+        <com.skeleton.util.customview.MaterialEditText
+            style="@style/profile_Edit_Text"
+            android:hint="@string/mt_body_type"
+            android:id="@+id/mtBodyType"
+            />
+        <com.skeleton.util.customview.MaterialEditText
+            style="@style/profile_Edit_Text"
+            android:hint="@string/mt_smoking"
+            android:id="@+id/mtSmoking"
+            />
+        <com.skeleton.util.customview.MaterialEditText
+            style="@style/profile_Edit_Text"
+            android:hint="@string/mt_drinking"
+            android:id="@+id/mtDrinking"
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_login"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:text="@string/btn_next"
+            android:textColor="@color/white"
+            android:id="@+id/btnNext"/>
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
