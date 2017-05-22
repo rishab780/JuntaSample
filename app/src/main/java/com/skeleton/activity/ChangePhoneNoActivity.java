@@ -1,11 +1,9 @@
 package com.skeleton.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
 import android.widget.TextView;
 
 import com.skeleton.R;
@@ -14,7 +12,6 @@ import com.skeleton.database.CommonData;
 import com.skeleton.model.Response;
 import com.skeleton.retrofit.APIError;
 import com.skeleton.retrofit.ApiInterface;
-
 import com.skeleton.retrofit.MultipartParams;
 import com.skeleton.retrofit.ResponseResolver;
 import com.skeleton.retrofit.RestClient;
@@ -28,7 +25,7 @@ import okhttp3.RequestBody;
 /**
  * created by Rishab
  */
-public class ChangePhoneNoActivity extends AppCompatActivity {
+public class ChangePhoneNoActivity extends BaseActivity {
     private MaterialEditText etNewNumber;
     private TextView tvSubmit;
 
@@ -53,7 +50,7 @@ public class ChangePhoneNoActivity extends AppCompatActivity {
                                     CommonData.setUserData(response.getData().getUserDetails());
                                     Intent intent = new Intent();
                                     intent.putExtra("MESSAGE", "num changed");
-                                    setResult(0, intent);
+                                    setResult(RESULT_OK, intent);
                                     finish();
                                 }
                             }

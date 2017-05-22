@@ -1,14 +1,12 @@
-package com.skeleton.model.userProfile;
+package com.skeleton.model.userInterests;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Rishab on 17-05-2017.
+ * Created by Rishab on 18-05-2017.
  */
 
 public class Response {
-
-
     @SerializedName("statusCode")
     private int statusCode;
     @SerializedName("message")
@@ -17,7 +15,6 @@ public class Response {
     private Data data;
 
     /**
-     *
      * @return status code
      */
     public int getStatusCode() {
@@ -25,7 +22,6 @@ public class Response {
     }
 
     /**
-     *
      * @param statusCode status code
      */
     public void setStatusCode(final int statusCode) {
@@ -33,32 +29,28 @@ public class Response {
     }
 
     /**
-     *
-     * @return message
+     * @return message from server
      */
     public String getMessage() {
         return message;
     }
 
     /**
-     *
-     * @param message message
+     * @param message message from server
      */
     public void setMessage(final String message) {
         this.message = message;
     }
 
     /**
-     *
-     * @return data
+     * @return data object from server
      */
     public Data getData() {
         return data;
     }
 
     /**
-     *
-     * @param data data
+     * @param data user profile input detail option
      */
     public void setData(final Data data) {
         this.data = data;

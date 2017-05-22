@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.skeleton.R;
 import com.skeleton.constant.AppConstant;
 import com.skeleton.database.CommonData;
-
 import com.skeleton.retrofit.APIError;
 import com.skeleton.retrofit.ApiInterface;
 import com.skeleton.retrofit.CommonParams;
@@ -31,6 +30,7 @@ public class OtpActivity extends BaseActivity implements AppConstant {
     private TextView tvResndOTP, tvEditNo, tvPhone;
     private Button btnVerify;
     private EditText etOTP1, etOTP2, etOTP3, etOTP4;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +39,7 @@ public class OtpActivity extends BaseActivity implements AppConstant {
         btnVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
+                mOTP = etOTP1.getText().toString() + etOTP2.getText().toString() + etOTP3.getText().toString() + etOTP4.getText().toString();
                 verifyOTP();
             }
 
@@ -58,6 +59,7 @@ public class OtpActivity extends BaseActivity implements AppConstant {
 
 
     }
+
     /**
      * initialisation function
      */
@@ -73,10 +75,10 @@ public class OtpActivity extends BaseActivity implements AppConstant {
         etOTP2 = (EditText) findViewById(R.id.et_otp2);
         etOTP4 = (EditText) findViewById(R.id.et_otp4);
         etOTP3 = (EditText) findViewById(R.id.et_otp3);
-        mOTP = String.valueOf(etOTP1) + String.valueOf(etOTP2) + String.valueOf(etOTP3) + String.valueOf(etOTP4);
 
 
     }
+
     /**
      * server call to resend otp
      */
@@ -99,6 +101,7 @@ public class OtpActivity extends BaseActivity implements AppConstant {
 
 
     }
+
     /**
      * server call to verify otp
      */
@@ -113,7 +116,8 @@ public class OtpActivity extends BaseActivity implements AppConstant {
                     @Override
                     public void success(final CommonResponse commonResponse) {
                         Log.d("debug", commonResponse.getMessage());
-
+                        setResult(RESULT_OK);
+                        finish();
                     }
 
                     @Override
@@ -123,6 +127,7 @@ public class OtpActivity extends BaseActivity implements AppConstant {
                     }
                 });
     }
+
     /**
      * @param requestCode request code for given result
      * @param resultCode  result ok or not
@@ -131,17 +136,18 @@ public class OtpActivity extends BaseActivity implements AppConstant {
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 0) {
+        if (requestCode == RESULT_OK) {
             tvPhone.setText(CommonData.getUserData().getCountryCode() + CommonData.getUserData().getPhoneNo());
             resendOTP();
         }
     }
+
     /**
      * edit no
      */
     public void editNumber() {
         Intent intent = new Intent(OtpActivity.this, ChangePhoneNoActivity.class);
-        startActivityForResult(intent, 0);
+        startActivityForResult(intent, REQ_CODE_EDIT_NUMBER);
 
     }
 }

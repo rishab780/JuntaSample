@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class PagerAdapter extends FragmentStatePagerAdapter {
     private List<Fragment> fragments;
-    private String[] fragment = new String[]{"Sign Up", "Sign In"};
+    private String[] fragment = new String[]{"Sign In", "Sign Up"};
 
     /**
      * Instantiates a new Pager adapter.

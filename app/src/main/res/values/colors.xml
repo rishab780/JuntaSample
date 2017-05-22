@@ -24,4 +24,7 @@
     <color name="button_login_pressed">@color/colorAccent</color>
 
     <color name="small_selector">#2b000000</color>
+
+    <color name="selector_bar">#37b226</color>
+    <color name="transparent_gray_light">#CCDBDBDB</color>
 </resources>

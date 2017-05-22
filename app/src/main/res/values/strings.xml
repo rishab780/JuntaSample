@@ -82,5 +82,6 @@
     <string name="mt_smoking">Smoking</string>
     <string name="mt_drinking">Drinking</string>
     <string name="btn_next">NEXT</string>
+    <string name="savecontinue"><![CDATA[Save & Continue]]></string>
 
 </resources>

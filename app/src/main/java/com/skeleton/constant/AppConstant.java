@@ -15,6 +15,10 @@ public interface AppConstant {
     int SESSION_EXPIRED = 401;
 
     //Request code
+    int REQ_CODE_PROFILE_COMPLETENESS = 103;
+    int REQ_CODE_OTP = 102;
+    int REQ_CODE_EDIT_NUMBER = 501;
+    int REQ_CODE_SIGNIN_SIGNUP_ACTIVITY = 101;
     int REQ_CODE_DEFAULT_SETTINGS = 16061;
     int REQ_CODE_PLAY_SERVICES_RESOLUTION = 16061;
     int REQ_CODE_SCREEN_OVERLAY = 10101;
@@ -45,4 +49,13 @@ public interface AppConstant {
 
     String KEY_OTP = "OTPCode";
     String KEY_NEW_NUMBER = "newNumber";
+    String KEY_RELATIONSHIP_HISTORY = "relationshipHistory";
+
+    String KEY_ETHNICITY = "ethnicity";
+    String KEY_RELIGION = "religion";
+
+    String KEY_HEIGHT = "height";
+    String KEY_BODY_TYPE = "bodyType";
+    String KEY_SMOKING = "smoking";
+    String KEY_DRINKING = "drinking";
 }

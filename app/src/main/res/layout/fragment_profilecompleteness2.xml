@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/spacing_large">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/spacing_normal"
+        >
+
+        <ImageView
+            android:id="@+id/background_parts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/background_parts"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/two_steps"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_large">
+
+        <View
+            style="@style/small_selector"
+            android:id="@+id/selector_vp1"
+            />
+
+        <View
+            style="@style/small_selector"
+            android:id="@+id/selector_vp2"
+            />
+        <View
+            style="@style/small_selector"
+            android:id="@+id/selector_vp3"
+            />
+        <View
+            style="@style/small_selector"
+            android:id="@+id/selector_vp4"
+            />
+        <View
+            style="@style/small_selector"
+            android:id="@+id/selector_vp5"
+            />
+
+        </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/spacing_small">
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rv_profile2"
+            android:layout_above="@+id/btnSaveContinue"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+        <Button
+
+            android:layout_alignParentBottom="true"
+            android:id="@+id/btnSaveContinue"
+            android:text="@string/savecontinue"
+            style="@style/btnTheme"
+
+            />
+
+    </RelativeLayout>
+
+    </LinearLayout>

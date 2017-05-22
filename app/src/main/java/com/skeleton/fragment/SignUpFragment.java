@@ -1,8 +1,8 @@
 package com.skeleton.fragment;
 
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -21,7 +20,6 @@ import android.widget.RadioGroup;
 import com.bumptech.glide.Glide;
 import com.kbeanie.multipicker.api.entity.ChosenImage;
 import com.skeleton.R;
-import com.skeleton.activity.OtpActivity;
 import com.skeleton.constant.AppConstant;
 import com.skeleton.database.CommonData;
 import com.skeleton.model.Response;
@@ -42,7 +40,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
 
 import okhttp3.RequestBody;
 
@@ -120,9 +117,9 @@ public class SignUpFragment extends BaseFragment {
 //                                        startActivity(intent);
                                         CommonData.saveAccessToken(response.getData().getAccessToken());
                                         CommonData.setUserData(response.getData().getUserDetails());
-                                        Intent intent = new Intent(getActivity(), OtpActivity.class);
-                                        startActivity(intent);
-                                        }
+                                        getActivity().setResult(Activity.RESULT_OK, new Intent());
+                                        getActivity().finish();
+                                    }
 
 
                                 }
@@ -279,6 +276,7 @@ public class SignUpFragment extends BaseFragment {
         }
 
     }
+
     /**
      * deletes previous
      *

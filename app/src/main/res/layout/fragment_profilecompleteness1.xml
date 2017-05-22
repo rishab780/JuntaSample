@@ -6,12 +6,28 @@
     android:orientation="vertical"
     android:layout_margin="@dimen/spacing_large">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/spacing_normal"
+        >
 
         <ImageView
-            android:layout_width="match_parent"
+            android:id="@+id/background_parts"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/background_parts"/>
+            android:src="@drawable/background_parts"
+            />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/one_step"/>
+
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,28 +35,36 @@
 
         <View
             style="@style/small_selector"
+            android:id="@+id/selector_v1"
             />
 
         <View
             style="@style/small_selector"
+            android:id="@+id/selector_v2"
             />
         <View
         style="@style/small_selector"
+        android:id="@+id/selector_v3"
         />
         <View
             style="@style/small_selector"
+            android:id="@+id/selector_v4"
             />
         <View
             style="@style/small_selector"
+            android:id="@+id/selector_v5"
             />
         <View
             style="@style/small_selector"
+            android:id="@+id/selector_v6"
             />
         <View
             style="@style/small_selector"
+            android:id="@+id/selector_v7"
             />
         <View
             style="@style/small_selector"
+            android:id="@+id/selector_v8"
             />
 
     </LinearLayout>

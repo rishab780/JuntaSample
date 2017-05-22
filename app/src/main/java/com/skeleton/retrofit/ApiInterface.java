@@ -16,9 +16,9 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.PartMap;
+import retrofit2.http.Query;
 
 import static com.skeleton.constant.ApiKeyConstant.AUTHORIZATION;
-import static com.skeleton.retrofit.ApiInterface.USER_APP_CONSTANTS;
 
 /**
  * Developer: Saurabh Verma
@@ -33,16 +33,17 @@ public interface ApiInterface {
     String USER_VERIFY_OTP = "/api/user/verifyOTP";
     String USER_EDIT_PROFILE = "/api/user/updateProfile";
     String USER_APP_CONSTANTS = "/api/profile/constants";
+    String USER_INTERESTS = "/api/category/list";
 
 
     /**
-     *
      * @param map hasmap
      * @return Response
      */
     @Multipart
     @POST(USER_SIGNUP)
     Call<com.skeleton.model.Response> userRegister(@PartMap HashMap<String, RequestBody> map);
+
     /**
      * Update location call.
      *
@@ -52,17 +53,17 @@ public interface ApiInterface {
      */
 
     @POST(USER_LOGIN)
-    Call<CommonResponse> userLogin(@Header(AUTHORIZATION) String authorization,
-                                   @Body HashMap<String, String> map);
+    Call<Response> userLogin(@Header(AUTHORIZATION) String authorization,
+                             @Body HashMap<String, String> map);
 
     /**
      * call to get profile
+     *
      * @param mAccessToken access token to get the profile
      * @return allowed or not
      */
     @GET(USER_GET_PROFILE)
     Call<Response> userProfile(@Header(AUTHORIZATION) String mAccessToken);
-
 
 
 //    /**
@@ -130,9 +131,10 @@ public interface ApiInterface {
     Call<CommonResponse> userResendOTP(@Header(AUTHORIZATION) String mAccessToken);
 
     /**
-     *  to check verify
+     * to check verify
+     *
      * @param authorization access token
-     * @param map Hash map
+     * @param map           Hash map
      * @return returns response
      */
     @PUT(USER_VERIFY_OTP)
@@ -140,18 +142,31 @@ public interface ApiInterface {
                                        @Body HashMap<String, String> map);
 
     /**
-     *  to change profile
+     * to change profile
+     *
      * @param authorization access token
-     * @param map map to change
+     * @param map           map to change
      * @return response
      */
     @Multipart
     @PUT(USER_EDIT_PROFILE)
     Call<Response> userUpdateProfile(@Header(AUTHORIZATION) String authorization,
-                                           @PartMap HashMap<String, RequestBody> map);
+                                     @PartMap HashMap<String, RequestBody> map);
 
+    /**
+     * @return returns profile
+     */
     @GET(USER_APP_CONSTANTS)
-    Call<Response> getConstants();
+    Call<com.skeleton.model.userInterests.Response> getConstants();
+
+    /**
+     * @param authorization access token
+     * @param mInterst      intrestr
+     * @return response
+     */
+    @GET(USER_INTERESTS)
+    Call<com.skeleton.model.userProfile.Response> getInterests(@Header(AUTHORIZATION) String authorization,
+                                                               @Query("requestType") String mInterst);
 
 }
 

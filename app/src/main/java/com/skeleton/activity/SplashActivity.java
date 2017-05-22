@@ -120,11 +120,11 @@ public class SplashActivity extends BaseActivity implements FCMTokenInterface {
     public void onTokenReceived(final String token) {
         accessToken = CommonData.getAccessToken();
         Log.e(TAG, token);
-        if (accessToken != null) {
-            android.util.Log.d("debug", CommonData.getAccessToken());
-        }
+//        if (accessToken != null) {
+//            android.util.Log.d("debug", CommonData.getAccessToken());
+//        }
         if (accessToken == null) {
-            startActivity(new Intent(this, HomeActivity.class));
+            startActivityForResult(new Intent(this, HomeActivity.class), REQ_CODE_SIGNIN_SIGNUP_ACTIVITY);
         } else {
             ApiInterface apiInterface = RestClient.getApiInterface();
             apiInterface.userProfile("bearer " + accessToken).enqueue(new ResponseResolver<Response>(this, true, true) {
@@ -133,11 +133,11 @@ public class SplashActivity extends BaseActivity implements FCMTokenInterface {
                     if (!response.getData().getUserDetails().getPhoneVerified()) {
                         Log.d("debug1", "yep");
                         Intent intent = new Intent(SplashActivity.this, OtpActivity.class);
-                        startActivity(intent);
+                        startActivityForResult(intent, REQ_CODE_OTP);
                     } else {
                         if (response.getData().getUserDetails().getStep1CompleteOrSkip()
                                 && response.getData().getUserDetails().getStep2CompleteOrSkip()) {
-                            startActivity(new Intent(SplashActivity.this, ProfileActivity.class));
+                            startActivityForResult(new Intent(SplashActivity.this, ProfileActivity.class), REQ_CODE_PROFILE_COMPLETENESS);
 
                         } else {
                             startActivity(new Intent(SplashActivity.this, SetProfileActivity.class));
