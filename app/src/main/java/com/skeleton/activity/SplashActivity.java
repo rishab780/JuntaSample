@@ -83,7 +83,15 @@ public class SplashActivity extends BaseActivity implements FCMTokenInterface {
         } else if (requestCode == REQ_CODE_PLAY_SERVICES_RESOLUTION
                 && resultCode == Activity.RESULT_OK) {
             init();
+        } else if (requestCode == REQ_CODE_OTP && resultCode == RESULT_OK) {
+            getAccessToken();
+
+        } else if (requestCode == REQ_CODE_SIGNIN_SIGNUP_ACTIVITY && resultCode == RESULT_OK) {
+            getAccessToken();
+        } else if (requestCode == REQ_CODE_PROFILE_COMPLETENESS && resultCode == RESULT_OK) {
+            getAccessToken();
         }
+
     }
 
     /**
@@ -126,36 +134,41 @@ public class SplashActivity extends BaseActivity implements FCMTokenInterface {
         if (accessToken == null) {
             startActivityForResult(new Intent(this, HomeActivity.class), REQ_CODE_SIGNIN_SIGNUP_ACTIVITY);
         } else {
-            ApiInterface apiInterface = RestClient.getApiInterface();
-            apiInterface.userProfile("bearer " + accessToken).enqueue(new ResponseResolver<Response>(this, true, true) {
-                @Override
-                public void success(final Response response) {
-                    if (!response.getData().getUserDetails().getPhoneVerified()) {
-                        Log.d("debug1", "yep");
-                        Intent intent = new Intent(SplashActivity.this, OtpActivity.class);
-                        startActivityForResult(intent, REQ_CODE_OTP);
-                    } else {
-                        if (response.getData().getUserDetails().getStep1CompleteOrSkip()
-                                && response.getData().getUserDetails().getStep2CompleteOrSkip()) {
-                            startActivityForResult(new Intent(SplashActivity.this, ProfileActivity.class), REQ_CODE_PROFILE_COMPLETENESS);
-
-                        } else {
-                            startActivity(new Intent(SplashActivity.this, SetProfileActivity.class));
-                        }
-                    }
-
-
-                }
-
-                @Override
-                public void failure(final APIError error) {
-                    Log.d("debug", error.getMessage());
-
-                }
-            });
+            getAccessToken();
 
         }
     }
+
+    public void getAccessToken() {
+        ApiInterface apiInterface = RestClient.getApiInterface();
+        apiInterface.userProfile("bearer " + accessToken).enqueue(new ResponseResolver<Response>(this, true, true) {
+            @Override
+            public void success(final Response response) {
+                if (!response.getData().getUserDetails().getPhoneVerified()) {
+                    Log.d("debug1", "yep");
+                    Intent intent = new Intent(SplashActivity.this, OtpActivity.class);
+                    startActivityForResult(intent, REQ_CODE_OTP);
+                } else {
+                    if (response.getData().getUserDetails().getStep1CompleteOrSkip()
+                            && response.getData().getUserDetails().getStep2CompleteOrSkip()) {
+                        startActivityForResult(new Intent(SplashActivity.this, ProfileActivity.class), REQ_CODE_PROFILE_COMPLETENESS);
+
+                    } else {
+                        startActivity(new Intent(SplashActivity.this, SetProfileActivity.class));
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void failure(final APIError error) {
+                Log.d("debug", error.getMessage());
+
+            }
+        });
+    }
+
 
     @Override
     public void onFailure() {
